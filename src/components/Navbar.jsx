@@ -45,6 +45,7 @@ const Navbar = () => {
             </Link>
           </div>
 
+
           {/* Right Side: Search + Menu */}
           <div className="hidden md:flex items-center flex-1 justify-end space-x-6 ml-8">
             {/* Navbar Search */}
