@@ -50,6 +50,10 @@ const Home = () => {
     return () => clearTimeout(delayDebounceFn);
   }, [search, genre, page]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [search, genre]);
+
   return (
     <div className="pb-20">
       {/* Premium Hero Section */}
@@ -96,7 +100,10 @@ const Home = () => {
       <section className="max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 overflow-x-auto pb-4 scrollbar-hide">
           <button
-            onClick={() => setGenre('')}
+            onClick={() => {
+              setGenre('');
+              setPage(1);
+            }}
             className={`flex-shrink-0 px-6 py-3 rounded-full font-bold transition-all ${genre === ''
               ? 'bg-black text-white shadow-lg shadow-black/20'
               : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-black text-medium'
@@ -107,7 +114,10 @@ const Home = () => {
           {genres.map((g) => (
             <button
               key={g}
-              onClick={() => setGenre(g)}
+              onClick={() => {
+                setGenre(g);
+                setPage(1);
+              }}
               className={`flex-shrink-0 px-6 py-3 rounded-full font-bold transition-all ${genre === g
                 ? 'bg-black text-white shadow-lg shadow-black/20'
                 : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-black text-medium'

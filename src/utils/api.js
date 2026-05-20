@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const API = axios.create({
-  baseURL: 'https://libraryhub-backend-2.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://libraryhub-backend-3.onrender.com/api',
 });
 
 API.interceptors.request.use((config) => {
